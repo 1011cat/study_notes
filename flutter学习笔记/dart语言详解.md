@@ -1,9 +1,9 @@
 ## dart语言详述
 **重要：** 
 
-下面如果对我的解释还有疑惑的可以查看官中的解释：[传送门](https://www.dartcn.com/guides/language/language-tour)
+下面如果对我的解释还有疑惑的可以查看官中的解释：[传送门](https://dart.cn/guides/language/language-tour)
 
-下面如果想了解更多的属性和方法可以查看官中的说明·：[传送门](https://www.dartcn.com/guides/libraries/library-tour)
+下面如果想了解更多的属性和方法可以查看这里的说明·：[传送门](https://dart.cn/guides/libraries/library-tour)
 ### 重要概念
 
 在学习Dart之前，首先得有这些意识:
