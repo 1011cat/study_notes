@@ -52,7 +52,7 @@ Widget 可以定义为 :
 ### 组件嵌套
 组件嵌套可以说是flutter的一个特色，也可以说是一个恶心之处，上面说过flutter里一切皆为组件，所以在复杂的界面里不可避免的会出现各种深层组件嵌套。有时候比回调地狱还恶心。
 
-![enter description here](./images/1571070230596.png)
+![enter description here](https://user-gold-cdn.xitu.io/2019/10/21/16dec42dbc5fa5a8?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
 
 PS：左边的缺角就像被街霸的肯，发了个“好哟跟”
 
