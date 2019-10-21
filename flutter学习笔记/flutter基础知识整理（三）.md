@@ -52,7 +52,7 @@ dependencies: # 指定包的依赖
 dev_dependencies: #用于开发环境的依赖项 如果没有可以不写
   flutter_test: #用于flutter测试
     sdk: flutter
-	#启用国际化
+  #启用国际化
   flutter_localizations:
     sdk: flutter
 
