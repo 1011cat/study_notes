@@ -1,18 +1,20 @@
 
-
 ！！！！！！！！！！！注意：还没写完，有的部分内容只是摘抄，仅供参考！！！！！！！！！！！！！！！！
+
 <!-- TOC -->
 
-- [Flutter基础知识](#flutter%e5%9f%ba%e7%a1%80%e7%9f%a5%e8%af%86)
-  - [入口程序](#%e5%85%a5%e5%8f%a3%e7%a8%8b%e5%ba%8f)
-  - [包管理文件：pubspec.yaml](#%e5%8c%85%e7%ae%a1%e7%90%86%e6%96%87%e4%bb%b6pubspecyaml)
-    - [dart包配置项](#dart%e5%8c%85%e9%85%8d%e7%bd%ae%e9%a1%b9)
-    - [flutter相关配置项](#flutter%e7%9b%b8%e5%85%b3%e9%85%8d%e7%bd%ae%e9%a1%b9)
-  - [material design 设计风格](#material-design-%e8%ae%be%e8%ae%a1%e9%a3%8e%e6%a0%bc)
-  - [使用 Themes 统一颜色和字体风格](#%e4%bd%bf%e7%94%a8-themes-%e7%bb%9f%e4%b8%80%e9%a2%9c%e8%89%b2%e5%92%8c%e5%ad%97%e4%bd%93%e9%a3%8e%e6%a0%bc)
+- [Flutter基础知识](#flutter基础知识)
+  - [入口程序](#入口程序)
+  - [material design 设计风格](#material-design-设计风格)
+  - [包管理文件：pubspec.yaml](#包管理文件pubspecyaml)
+    - [dart包配置项](#dart包配置项)
+    - [flutter相关配置项](#flutter相关配置项)
+  - [使用 Themes 统一颜色和字体风格](#使用-themes-统一颜色和字体风格)
+    - [设置全局Theme](#设置全局theme)
+    - [设置局部Theme](#设置局部theme)
+    - [使用主题](#使用主题)
 
 <!-- /TOC -->
-
 ## Flutter基础知识
 这部分知识属于flutter的基础，但部分知识比较零散，即使在官方文档里，也是比较分散的，有的说得也比较简单。这里就把遇到的，都整理出来。
 
@@ -23,6 +25,10 @@
  ```
  其中main函数是dart的入口函数。在里面又执行了runApp。runApp则是Flutter的入口函数，它可以让其中的根组件充满整个屏幕。
  
+### material design 设计风格
+material design是我最喜欢的设计风格，也是我选择flutter的重要原因。[官方网站可以看这里](https://www.material.io/) 前端三大框架也有对应的material design风格的ui框架。
+
+在flutter中，官方提供了material design风格的包。当我们要在.dart文件中使用时，需要导入`import 'package:flutter/material.dart';`包。它包含了文本框，icon，布局等等组件。再强调一句，flutter中一切皆组件。
 
 ### 包管理文件：pubspec.yaml
 由于flutter使用的是dart，所以它使用的包也是dart包。dart包目录中都是至少含有一个pubspec文件。pubspec 文件记录一些关于包的元数据。此外，包还包含其他依赖项（在 pubspec 中列出）， Dart 库，应用，资源，测试，图片，以及示例。
@@ -52,7 +58,7 @@ dependencies: # 指定包的依赖
 dev_dependencies: #用于开发环境的依赖项 如果没有可以不写
   flutter_test: #用于flutter测试
     sdk: flutter
-  #启用国际化
+	#启用国际化
   flutter_localizations:
     sdk: flutter
 
@@ -106,10 +112,205 @@ assets:
 之后我们引用时，只需要使用默认的图片地址即可，flutter会自动根据设备分辨率选择合适的图片。
 `image: AssetImage('images/shotcat.png')`
 
-### material design 设计风格
-material design是我最喜欢的设计风格，也是我选择flutter的重要原因。[官方网站可以看这里](https://www.material.io/) 前端三大框架也有对应的material design风格的ui框架。
-
-在flutter中，官方提供了material design风格的包。当我们要在.dart文件中使用时，需要导入`import 'package:flutter/material.dart';`包。它包含了文本框，icon，布局等等组件。再强调一句，flutter中一切皆组件。
-
 ### 使用 Themes 统一颜色和字体风格
-通过定义 Theme，我们可以更好地复用颜色和字体样式，从而让整个 app 的设计看起来更一致。全局 Theme 会在整个 app 范围内生效，而局部 Theme 只作用于特定元素。其实所谓的全局 Theme 和局部 Theme 的区别只在于，全局 Theme 定义在了 app 的 root 处而已。而 MaterialApp 已经事先为你预设了一个全局的 Theme Widget。
+主题这个东西，做程序时，一般都会单独提出一个css文件，作为全局的样式风格，既能实现css复用，也方便后期主题样式修改。
+
+在flutter里，可以直接设置Theme（不需要自己提出来），从而让整个 app 的设计看起来更一致。
+
+Theme分为：
+ - 全局 Theme ：会在整个 app 范围内生效，因为全局 Theme 定义在了 app 的 root 上
+ - 局部Theme：只作用于特定元素
+
+#### 设置全局Theme
+全局 Theme 会影响整个 app 的颜色和字体样式。MaterialApp 已经事先为你预设了一个全局的 Theme Widget，只需要向 MaterialApp 构造器传入 ThemeData（全局配置项） 即可。
+
+```dart
+MaterialApp(
+  title: title,
+  theme: ThemeData(
+    // Define the default brightness and colors.
+    brightness: Brightness.dark,
+    primaryColor: Colors.lightBlue[800],
+    accentColor: Colors.cyan[600],
+    
+    // Define the default font family.
+    fontFamily: 'Montserrat',
+    
+    // Define the default TextTheme. Use this to specify the default
+    // text styling for headlines, titles, bodies of text, and more.
+    textTheme: TextTheme(
+      headline: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
+      title: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic),
+      body1: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
+    ),
+  )
+);
+```
+
+**ThemeData属性及解释**
+| 属性 | 解释 |
+| --- | --- |
+| brightness | Brightness类型，应用程序的整体主题亮度。用于按钮等小部件，以确定在不使用主色（primaryColor）或强调色（accentColor）时选择什么颜色。当亮度较暗时，画布、卡片和原色都较暗。当亮度为光时，画布和卡片的颜色是明亮的，原色的暗度根据原色亮度变化。当亮度较暗时，原色（primaryColor）与卡片和画布颜色的对比度较差;当亮度较暗时，用白色或亮蓝色来对比。 |
+| primaryColor | Color类型，App主要部分的背景色（ToolBar,Tabbar等） |
+| primaryColorBrightness | Brightness类型，primaryColor的亮度，用于确定设置在primaryColor上部的文本和图标颜色(如:工具栏文本(toolbar text))。 |
+| primaryColorLight | Color类型，primaryColor的较浅版本 |
+| primaryColorDark | Color类型，primaryColor的较深版本 |
+| accentColor | Color类型，前景色(按钮、文本、覆盖边缘效果等) |
+| accentColorBrightness | Brightness类型，accentColor的亮度。用于确定位于accentColor上部的文本和图标颜色(例如，浮动操作按钮(FloatingButton)上的图标) |
+| canvasColor | Color类型，MaterialType.canvas Material的默认颜色。 |
+| scaffoldBackgroundColor | Color类型，作为Scaffold下的Material默认颜色，用于materia应用程序或app内页面的背景色。 |
+| bottomAppBarColor | Color类型，bottomAppBarColor的默认颜色。这可以通过指定BottomAppBar.color来覆盖。 |
+| cardColor | Color类型，用在卡片(Card)上的Material的颜色。 |
+| dividerColor | Color类型，分隔符(Dividers)和弹窗分隔符(PopupMenuDividers)的颜色，也用于ListTiles和DataTables的行之间。要创建使用这种颜色的合适的边界，请考虑Divider.createBorderSide。 |
+| highlightColor | Color类型，用于墨水喷溅动画或指示菜单被选中时的高亮颜色 |
+| splashColor | Color类型，墨水溅出的颜色 |
+| splashFactory | InteractiveInkFeatureFactory类型，定义InkWall和InkResponse产成的墨水喷溅时的外观。 |
+| selectedRowColor | Color类型，用于高亮选定行的颜色。 |
+| unselectedWidgetColor | Color类型，小部件处于非活动(但启用)状态时使用的颜色。例如，未选中的复选框。通常与accentColor形成对比。 |
+| disabledColor | Color类型，无效的部件(widget)的颜色，不管它们的状态如何。例如，一个禁用的复选框(可以选中或不选中)。 |
+| buttonColor | Color类型，Material中RaisedButtons使用的默认填充色。 |
+| buttonTheme | ButtonThemeData类型，定义按钮小部件的默认配置，如RaisedButton和FlatButton。 |
+| secondaryHeaderColor | Color类型，有选定行时PaginatedDataTable标题的颜色 |
+| textSelectionColor | Color类型，文本字段(如TextField)中文本被选中的颜色。 |
+| cursorColor | Color类型，在 Material-style 文本字段(如TextField)中光标的颜色。 |
+| textSelectionHandleColor | Color类型，用于调整当前选定文本部分的句柄的颜色。 |
+| backgroundColor | Color类型，与primaryColor对比的颜色(例如 用作进度条的剩余部分)。 |
+| dialogBackgroundColor | Color类型，Color类型，Dialog元素的背景色 |
+| indicatorColor | Color类型，TabBar中选项选中的指示器颜色。 |
+| hintColor | Color类型，用于提示文本或占位符文本的颜色，例如在TextField中。 |
+| errorColor | Color类型，用于输入验证错误的颜色，例如在TextField中。 |
+| toggleableActiveColor | Color类型，用于突出显示切换Widget（如Switch，Radio和Checkbox）的活动状态的颜色。 |
+| fontFamily | String类型，字体类型 |
+| textTheme | TextTheme类型，与卡片和画布对比的文本颜色 |
+| primaryTextTheme | TextTheme类型，与primary color形成对比的文本主题。 |
+| accentTextTheme | TextTheme类型，与accent color形成对比的文本主题。 |
+| inputDecorationTheme | InputDecorationTheme类型，InputDecorator、TextField和TextFormField的默认InputDecoration值基于此主题。 |
+| iconTheme | IconThemeData类型，与卡片和画布颜色形成对比的图标主题。 |
+| primaryIconTheme | IconThemeData类型，与原色(primary color)形成对比的图标主题。 |
+| accentIconTheme | IconThemeData类型,与前景色(accent color)形成对比的图标主题。 |
+| sliderTheme | SliderThemeData类型，SliderThemeData类型，用于渲染Slider的颜色和形状。 |
+| tabBarTheme | TabBarTheme类型, 一个主题，用于自定义选项卡栏指示器的尺寸、形状和颜色。 |
+| chipTheme | ChipThemeData类型,用于Chip的颜色和样式 |
+| platform | TargetPlatform类型,widget应该适应目标的平台。 |
+| materialTapTargetSize | MaterialTapTargetSize类型,配置特定材料部件的hit测试大小。 |
+| pageTransitionsTheme | PageTransitionsTheme类型,每个目标平台的默认MaterialPageRoute转换。 |
+| colorScheme | ColorScheme类型,一组13种颜色，可用于配置大多数组件的颜色属性。 |
+| typography | Typography类型,用于配置TextTheme、primaryTextTheme和accentTextTheme的颜色和几何文本主题值。 |
+
+PS：上表转载自 [这里](https://www.jianshu.com/p/8d8ded72e673)，对作者翻译表示感谢。官方原版英文：[传送门](https://api.flutter-io.cn/flutter/material/ThemeData-class.html)
+
+#### 设置局部Theme
+如果我们想在部分widget里不使用全局样式，我们只需要覆盖它就行。
+
+有两种实现方式：定义一个独立的ThemeData和从父级Theme拓展。
+
+ - 定义一个独立的 ThemeData
+
+创建一个 ThemeData() 实例，然后把它传给 Theme widget：
+```dart
+Theme(
+  // 创建一个ThemeData主题数据
+  data: ThemeData(
+    accentColor: Colors.yellow,
+  ),
+  child: FloatingActionButton(
+    onPressed: () {},
+    child: Icon(Icons.add),
+  ),
+);
+```
+
+ - 从父级Theme拓展
+
+从父级 Theme 扩展可能更常规一些，使用 copyWith 方法即可。
+```dart
+Theme(
+  // 这里保持父级原有的主题配置，并将accentColor修改为 Colors.yellow
+  data: Theme.of(context).copyWith(accentColor: Colors.yellow),
+  child: FloatingActionButton(
+    onPressed: null,
+    child: Icon(Icons.add),
+  ),
+);
+```
+
+#### 使用主题
+在定义好Theme主题后，我们可以通过widget 的 build 方法中调用 Theme.of(context) 函数，让这些主题样式生效。
+
+Theme.of(context) 会查询 widget 树，并返回其中最近的 Theme。所以他会优先返回我们之前定义过的一个独立的 Theme，如果找不到，它会返回全局 theme。
+
+完整例子：
+```dart
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  // 调用build方法
+  Widget build(BuildContext context) {
+    final appName = 'Custom Themes';
+
+    return MaterialApp(
+      title: appName,
+      theme: ThemeData(
+		//定义全局主题
+        brightness: Brightness.dark,
+        primaryColor: Colors.lightBlue[800],
+        accentColor: Colors.cyan[600],
+
+        fontFamily: 'Montserrat',
+
+        textTheme: TextTheme(
+          headline: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
+          title: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic),
+          body1: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
+        ),
+      ),
+      home: MyHomePage(
+        title: appName,
+      ),
+    );
+  }
+}
+
+class MyHomePage extends StatelessWidget {
+  final String title;
+
+  MyHomePage({Key key, @required this.title}) : super(key: key);
+
+  @override
+  // 这里一样也需要使用build方法
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(title),
+      ),
+      body: Center(
+        child: Container(
+		// 通过Theme.of(context)获取主题的accentColor
+          color: Theme.of(context).accentColor,
+          child: Text(
+            'Text with a background color',
+            style: Theme.of(context).textTheme.title,
+          ),
+        ),
+      ),
+      floatingActionButton: Theme(
+	  //通过Theme.of(context).copyWith从父级拓展
+        data: Theme.of(context).copyWith(
+          colorScheme:
+              Theme.of(context).colorScheme.copyWith(secondary: Colors.yellow),
+        ),
+        child: FloatingActionButton(
+          onPressed: null,
+          child: Icon(Icons.add),
+        ),
+      ),
+    );
+  }
+}
+```
