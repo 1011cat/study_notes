@@ -58,7 +58,7 @@ dependencies: # 指定包的依赖
 dev_dependencies: #用于开发环境的依赖项 如果没有可以不写
   flutter_test: #用于flutter测试
     sdk: flutter
-	#启用国际化
+  #启用国际化
   flutter_localizations:
     sdk: flutter
 
@@ -148,6 +148,7 @@ MaterialApp(
 ```
 
 **ThemeData属性及解释**
+
 | 属性 | 解释 |
 | --- | --- |
 | brightness | Brightness类型，应用程序的整体主题亮度。用于按钮等小部件，以确定在不使用主色（primaryColor）或强调色（accentColor）时选择什么颜色。当亮度较暗时，画布、卡片和原色都较暗。当亮度为光时，画布和卡片的颜色是明亮的，原色的暗度根据原色亮度变化。当亮度较暗时，原色（primaryColor）与卡片和画布颜色的对比度较差;当亮度较暗时，用白色或亮蓝色来对比。 |
