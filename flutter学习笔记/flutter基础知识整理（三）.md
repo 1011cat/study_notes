@@ -13,6 +13,7 @@
     - [设置全局Theme](#设置全局theme)
     - [设置局部Theme](#设置局部theme)
     - [使用主题](#使用主题)
+  - [声明式UI](#声明式ui)
 
 <!-- /TOC -->
 ## Flutter基础知识
@@ -315,3 +316,4 @@ class MyHomePage extends StatelessWidget {
   }
 }
 ```
+### 声明式UI

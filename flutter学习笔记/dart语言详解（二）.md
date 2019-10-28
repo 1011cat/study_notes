@@ -39,6 +39,7 @@
     - [处理 Future](#处理-future)
     - [处理 stream](#处理-stream)
   - [元数据](#元数据)
+  - [该系列列表](#该系列列表)
   - [引用参考](#引用参考)
 
 <!-- /TOC -->
@@ -46,12 +47,16 @@
 
 这部分内容量很多，文字加代码接近三万了。所以强烈建议收藏保存。
 
-这篇文章涵盖了flutter会遇到的绝大部分关于dart的知识点，并且是站在一个纯前端的角度进行详细解读。它和那些你能找到的所有所谓“关于dart详解”都要详细。其实它们大多跟风copy的是dart网站论坛好几年前的帖子（这种copy文章居然在掘金也能拿到几百赞~），并且绝大多数关于dart文章都会忽视java部分，dart很多地方和java类似，包括很多关键字。这些文章都理所当然地认为所有读者都知道，都有java基础。虽然这些小地方，不懂都可以百度查出来，甚至猜出来。但既然选择了写一篇文章，干嘛还要在这种小地方偷懒（包括很多书）。要么不做，要做就要尽力做好。
+这篇文章涵盖了flutter会遇到的绝大部分关于dart的知识点，由于dart是参考了大量java和c++及部分JavaScript语言，所以纯前端学起来刚开始还是有一点吃力的，这篇文章就是为了解决这个痛点，站在一个纯前端的角度进行详细解读。
+
+吐槽：
+
+它和那些你能找到的所有所谓“关于dart详解”都要详细。其实它们大多跟风copy的是dart网站论坛好几年前的帖子（这种copy文章居然在掘金也能拿到几百赞？？），并且绝大多数关于dart文章都会忽视java部分，dart很多地方和java类似，包括很多关键字。这些文章都理所当然地认为所有读者都知道，都有java基础。虽然这些小地方，不懂都可以百度查出来，甚至猜出来。但既然选择了写一篇文章，干嘛还要在这种小地方偷懒（包括很多书）。要么不做，要做就要尽力做好。
 
 **重要：** 
 
- - 1，下面如果对我的解释还有疑惑的可以查看官中的文档：[传送门](https://www.dartcn.com/guides/language/language-tour) 官方文档必收藏
- - 2，下面如果想了解更多关于dart的属性和方法可以查看官中的说明·：[传送门](https://www.dartcn.com/guides/libraries/library-tour) 也是必收藏，例如：dart对数组list有哪些方法？
+ - 1，如果对我的解释还有疑惑的可以查看官中的文档：[传送门](https://www.dartcn.com/guides/language/language-tour) 官方文档必收藏
+ - 2，如果想了解更多关于dart的属性和方法可以查看官中的说明·：[传送门](https://www.dartcn.com/guides/libraries/library-tour) 也是必收藏，例如：dart对数组list有哪些方法？
 
 ### 重要概念
 
@@ -64,7 +69,8 @@
  - Dart 没有 public、 protected 和 private 的概念 。 **私有特性通过变量或函数加上下划线`_`来表示 。**
  - Dart 的工具可以检查出警告信息( warning)和错误信息( errors)。 **警告信息只是表明代码可能不工作，但是不会妨碍程序运行 。** 错误信息可以是编译时的错误，也可能是运行时的错误 。 编译时的错误将阻止程序运行，运行时的错误将会以异常 (exception)的方式呈现 。
  - Dart 支持 anync/await 异步处理 。
- - **Dart必须用分号来结束语句, 不加分则会报错。**(对于js基本不写分号的我，真的很容易忘)
+ - **Dart必须用分号来结束语句, 不加就会报错。**(对于js基本不写分号的我，真的很容易忘)
+ - **在Dart里，你不能像JS里通过字面量声明对象`var a = {b:123}`。需要通过class产生。**
  - dart关键字如下: abstract，do, import, super, as, dynamic, in , switch, assert, else, interface, sync*, enum, implements, is, this, async*, export, library, throw, await, external, mixin, true, break ，extends, new, try, case，factory, null, typedef, catch, false, operator, var, class, final, part, void, const, finally, rethrow , while , continue , for , return , with , covariant , get , set , yield*,  default, if , static, deferred。
 
 **dart使用评率最高的三个库：**
@@ -264,7 +270,7 @@ void main() {
   
   // 你也可以通过下面这种形式，直接指明你想要的类型
   List<String> list2 = ['shotCat', '吴彦祖', "彭于晏"];
-  List<dynamic> list3 = [10086, true, '傻逼'];//这种也是可以添加其他类型
+  List<dynamic> list3 = [10086, true, '傻**'];//这种也是可以添加其他类型
   
   //如果你想list可以添加不同类型的值，可以使用下面的形式
   List list4 = new List();
@@ -444,7 +450,18 @@ Dart中使用到的运算符如下表格
  - 3，`??=`运算符：正常来说，我们的运算符就是`=`，但是如果我们想在变量不存在为null时才进行赋值的话则可以使用`??=` 例子：`a ??= 666;`表示当a变量为null时，它才会被赋值为666
  - 4， **重要：** `??与?.运算符:` 为什么会有这两个运算符？在JS中我们经常会这样写`a || b 和 c && d`但是在dart中，这样写是有前提的，虽然dart也有`||` `&&`运算符，但是要求的是**两边必须为明确的boolean值(true和false)。** 即为undefined，null，0这些都不算。我在前面基本数据类型里也讲过这点，这里再强调下。
 	 - `??运算符` 表示前面的值如果为null或空的话就取??后面的值。正好对应的就是`||` 例子：`myName = name ?? 'shotCat';`如果name变量不存在，则取值'shotCat'
-	 - `?.运算符`表示前面的值如果不为null或空的话就取?.后面的值。正好对应的就是`&&` 例子：`myName = name ?. '彭于晏';`如果name变量存在，则取值'彭于晏'
+	 - `?.运算符`表示前面的值如果不为null或空的话就取?.后面的值。正好对应的就是`&&` 例子：`myName = name ?. myName;`如果name变量存在，则返回name.myName。如下例：
+	 ```dart
+	 void main(){
+        var name = new Name();
+        var myName = name?.myName;
+     //如果name存在则返回name.myName
+        print(myName); //得到结果 彭于晏
+    } 
+    class Name { 
+     String myName = '彭于晏'; 
+    }
+	 ```
  - 5，`.. 级联运算符：` 可以实现对同一个对像进行一系列的操作。 除了调用函数， 还可以访问同一对象上的字段属性。 **这通常可以节省创建临时变量的步骤，** 同时编写出更流畅的代码。
 	 - 这里直接引用官网的例子，就不再举自己是彭于晏的例子了（狗头）
 	```dart
@@ -612,6 +629,12 @@ dart定义类的关键字是class，而且**在定义类的时候，如果没有
  - 类变量和类方法：同理，既然有了实例的变量方法，当然也有类的变量方法。不过我们一般是称呼为静态变量和静态方法。形式就是使用关键字 static 声明类的变量和方法。记住它们是**不能被实例访问到的！** 
 	 - 类变量(静态变量)：常用于声明类范围内所属的状态变量和常量。并且在其首次被使用的时候才被初始化。
 	 - 类方法(静态方法)：不能被一个类的实例访问，同样地，静态方法内也不可以使用 this。
+
+补充：class的类型声明：
+
+感觉这个知识点插这里其实不太好，但想想也没其他地方。
+
+假设我们有一个类Father，那么`Father son() {...};`的意思就是son返回的值类型必须和Father的返回值类型一样，或者是Father的子类。
 
 #### 构造函数
 前面刚刚讲到了构造函数分为两种：主构造函数和命名构造函数。这里就详细展开：
@@ -1082,6 +1105,10 @@ class myName extends Father {
 	}
 }
 ```
+### 该系列列表
+- [flutter不完全指南系列--（一）flutter特点及学习建议](https://juejin.im/post/5dac91296fb9a04e270fb204)
+- [flutter不完全指南系列--（二）dart详解（前端角度的两万字解析）](https://juejin.im/post/5dade0fa5188251d2c4ea3fb)
+- 未完待续 to be continue
 
 ### 引用参考
 
