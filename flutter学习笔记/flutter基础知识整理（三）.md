@@ -405,7 +405,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
 为了方便理解，这里再画一个示意图：
 
-![StatelessWidget和StatefulWidget](https://www.github.com/1011cat/imagesBed/raw/master/shotcat/flutter基础知识/widget.svg)
+![StatelessWidget和StatefulWidget](https://www.github.com/1011cat/imagesBed/raw/master/shotcat/flutter%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/widget.svg)
 
 #### 深度分析StatelessWidget和StatefulWidget
 
