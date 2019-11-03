@@ -14,7 +14,6 @@
     - [设置局部Theme](#设置局部theme)
     - [使用主题](#使用主题)
   - [有状态和无状态的 widgets](#有状态和无状态的-widgets)
-    - [简述StatelessWidget和StatefulWidget](#简述statelesswidget和statefulwidget)
     - [StatelessWidget和StatefulWidget的使用](#statelesswidget和statefulwidget的使用)
     - [深度分析StatelessWidget和StatefulWidget](#深度分析statelesswidget和statefulwidget)
     - [StatelessWidget和StatefulWidget的使用建议](#statelesswidget和statefulwidget的使用建议)
@@ -322,104 +321,67 @@ class MyHomePage extends StatelessWidget {
 }
 ```
 ### 有状态和无状态的 widgets
+widget分为无状态与有状态
 
-#### 简述StatelessWidget和StatefulWidget
+ - 无状态（StatelessWidget）：从字面意思也能猜出来，就是widget从定义后，状态就不会发生变化。如果要改变无状态的widget，那就只能build一个新widget进行替换。
+ - 有状态（StatefulWidget）：如果用户与widget交互，widget 会发生“变化”，那么它就是有状态的。如果需要发生变化，可以通过调用setState方法，将自己标记为dirty状态，下一次系统就会对它检查，进行重绘。
+
+**PS**：这里虽然官中在介绍时也说widget变化了，实际上是不准确的，widget是不会变化的，变化的是state。widget类其实只是一个数据配置映射。
+
+
 
 #### StatelessWidget和StatefulWidget的使用
-
-flutter官方初始示例：
+ - StatelessWidget是一个没有状态的widget，没有需要管理的内部状态。基本使用如下：
 ```dart
-import 'package:flutter/material.dart';
-
-void main() => runApp(MyApp());
-
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+class ShotCat extends StatelessWidget {
+  // 这里只能用final
+  final String name;
+  
+  const ShotCat({Key key, this.name}) : super(key: key);
+  
+  // 调用build方法
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
+    return new Text(name);
   }
 }
+```
+ - StatefulWidget是一个有可变状态的widget。它会比无状态多一个设置state的步骤。下面以官方flutter初始示例为例（按钮点击+1demo）
 
+```dart
+// 第一部分：继承StatefulWidget
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
 
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
   // 注意widget里的变量必须用final！！
   final String title;
-
+  
+  // 这里必须设置createState方法，这样状态改变时，通过createState，组件就能得到新的状态
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
+// 第二部分：继承State
 class _MyHomePageState extends State<MyHomePage> {
+  // 定义状态变量和默认值
   int _counter = 0;
 
+  // 通过setState方法 设置变量如何变化
   void _incrementCounter() {
     setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
       _counter++;
     });
   }
-
+  
+  // 最后调用build
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
       body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
         child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
@@ -433,15 +395,18 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
+        onPressed: _incrementCounter, // 这里设置点击事件，调用上面的_incrementCounter执行setState
         child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
     );
   }
 }
-
 ```
+
+为了方便理解，这里再画一个示意图：
+
+![StatelessWidget和StatefulWidget](https://www.github.com/1011cat/imagesBed/raw/master/shotcat/flutter基础知识.md/widget.svg)
+
 #### 深度分析StatelessWidget和StatefulWidget
 
  - StatefulWidget与StatelessWidget本质都是静态的
