@@ -15,7 +15,7 @@
     - [使用主题](#使用主题)
   - [有状态和无状态的 widgets](#有状态和无状态的-widgets)
     - [StatelessWidget和StatefulWidget的使用](#statelesswidget和statefulwidget的使用)
-    - [深度分析StatelessWidget和StatefulWidget](#深度分析statelesswidget和statefulwidget)
+    - [深度理解StatelessWidget和StatefulWidget](#深度理解statelesswidget和statefulwidget)
     - [StatelessWidget和StatefulWidget的使用建议](#statelesswidget和statefulwidget的使用建议)
   - [声明式UI](#声明式ui)
 
@@ -323,12 +323,13 @@ class MyHomePage extends StatelessWidget {
 ### 有状态和无状态的 widgets
 widget分为无状态与有状态
 
- - 无状态（StatelessWidget）：从字面意思也能猜出来，就是widget从定义后，状态就不会发生变化。如果要改变无状态的widget，那就只能build一个新widget进行替换。
- - 有状态（StatefulWidget）：如果用户与widget交互，widget 会发生“变化”，那么它就是有状态的。如果需要发生变化，可以通过调用setState方法，将自己标记为dirty状态，下一次系统就会对它检查，进行重绘。
+ - 无状态（StatelessWidget）：从字面意思也能猜出来，就是widget从定义后，状态就不会发生变化。如果要改变无状态的widget，那就只能build一个新widget进行替换。并且StatelessWidget 的生命周期就只有一个，即 build 函数。
+ - 有状态（StatefulWidget）：如果用户与widget交互，widget 会发生“变化”，那么它就是有状态的。如果需要发生变化，可以通过调用setState方法，将自己标记为dirty状态，下一次系统就会对它检查，进行重绘。（这篇文章就不展开讲它的生命周期了，一是篇幅，二是我现在还没讲到生命周期，后面讲到了再合在一起）
 
-**PS**：这里虽然官中在介绍时也说widget变化了，实际上是不准确的，widget是不会变化的，变化的是state。widget类其实只是一个数据配置映射。
+**PS**：
 
-
+ - 这里虽然官中在介绍时也说widget变化了，实际上是不准确的，widget是不会变化的，变化的是state。widget类其实只是一个数据配置映射。
+ - 这里还要说一个，初学者可能会有这种担心。那就是有状态与无状态组件的嵌套。有状态组件作为父组件包裹无状态组件，这个比较好理解。但是如果一个无状态组件包裹了一个有状态组件，可以吗？很显然是可以的，当你新建一个Flutter工程，默认根布局就是一个StatelessWidget。**如果父组件不对有状态的子组件做出任何改变和反应，它就可以是无状态的。**
 
 #### StatelessWidget和StatefulWidget的使用
  - StatelessWidget是一个没有状态的widget，没有需要管理的内部状态。基本使用如下：
@@ -348,6 +349,7 @@ class ShotCat extends StatelessWidget {
 ```
  - StatefulWidget是一个有可变状态的widget。它会比无状态多一个设置state的步骤。下面以官方flutter初始示例为例（按钮点击+1demo）
 
+**PS：**  这个示例和示意图都属于**widget管理自己的状态**
 ```dart
 // 第一部分：继承StatefulWidget
 class MyHomePage extends StatefulWidget {
@@ -356,7 +358,7 @@ class MyHomePage extends StatefulWidget {
   // 注意widget里的变量必须用final！！
   final String title;
   
-  // 这里必须设置createState方法，这样状态改变时，通过createState，组件就能得到新的状态
+  // 这里必须设置createState方法，这样就能得到一个State类，记录StatefulWidget的状态
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -405,17 +407,45 @@ class _MyHomePageState extends State<MyHomePage> {
 
 为了方便理解，这里再画一个示意图：
 
-![StatelessWidget和StatefulWidget](https://www.github.com/1011cat/imagesBed/raw/master/shotcat/flutter基础知识.md/widget.svg)
+![](https://i.loli.net/2019/11/04/eIU43DVjnWAlctk.png "statelesswidgetANDstatefulwidget")
 
-#### 深度分析StatelessWidget和StatefulWidget
+#### 深度理解StatelessWidget和StatefulWidget
 
- - StatefulWidget与StatelessWidget本质都是静态的
- - StatefulWidget与state的关系
- - 
+ - StatefulWidget与StatelessWidget中的数据都是不可变的（immutable）
+应该说所有widget中定义的数据都是不可变的，都必须用final声明。
 
+在官方初始示例，main.dart里也有这样的注释：
+```
+  // used by the build method of the State. Fields in a Widget subclass are
+  // always marked "final".
+  final String title;
+```
+并且在widget源码里也规定了，Widget中的数据一定是不可变的，所以需要使用final来修饰。
+
+为什么这样设计呢？因为当初widget设计的就是描述UI的静态说明，而state则是保存UI需要显示的数据。当UI需要变化时，那么widget和state至少有一个也要跟着重建。由于重建widget的开销是最低的，所以为了性能考虑，就让widget整个重建，state则不会重建。
+
+
+ - StatefulWidget与State的关系
+上面讲到了widget都是不可变的，StatelessWidget本身就是用于不可变的，但是StatefulWidget是怎么改变的？这就要依靠State了。
+
+StatefulWidget会有一个createState方法，它须继承自State类。它会记录StatefulWidget的状态，当状态变化（例如某个点击事件），则会调用设置好的setState方法改变状态，然后重新调用build方法，**重建一个新的widget进行替换**，最后引起UI更新。（不理解这段话的可以结合我上面的示意图）
+
+可以简单理解为widget就是一张打印纸，state就是记录我们要打印的数据，当我们修改后，就会扔掉上一张打印纸，重新打印一张新的进行替换。
+
+ 
 #### StatelessWidget和StatefulWidget的使用建议
 
- - 合理理性使用StatefulWidget
- - 根节点尽量使用StatelessWidget
- - 尽量将触发变动和需要变化的widget放在一起
+ - 1，首先考虑这个widget是使用StatefulWidget还是StatelessWidget
+如果存在交互或数据改变会导致widget改变，则是有状态（StatefulWidget）。反之如果一个widget是自始至终都是不变的，那么它就是无状态（StatelessWidget）。
+ - 2，如果确定了为StatefulWidget，则需要状态state交给谁来管理
+	 - widget管理自己的状态：如果改变的状态仅仅是影响外观显示的，和其他组件没有关联的，例如动画，显示隐藏。那么状态最好由 widget 本身来管理。 
+	 - 父 widget 管理 widget 的 state：如果状态是用户数据，需要记录提交，或者有很多和它一样的组件，记录数据的，如复选框的选中状态、滑块的位置，则该状态最好由父 widget 管理。
+		 - 前面例子是widget自己管理的。父组件管理state其实也很简单。显然此时子组件是StatelessWidget，父组件是StatefulWidget，当然state也在父组件中。但是触发状态改变的事件（例如onPress）还是在子组件中，我们只需把父组件中含有setState的方法传递给子组件，绑定到其事件上就行了。[官方示例传送门](https://flutter.cn/docs/development/ui/interactive#the-parent-widget-manages-the-widgets-state)
+	 - 混搭管理：如果状态比较复杂，上面两种情况都有的话，那就混搭吧，按需求将state分别放在自身和父组件管理。
+
+PS：如果不是很清楚时, 那就在父 widget 中管理状态。
+
+**注意：**  最后想强调一句虽然StatefulWidget功能看起来像万金油，似乎所有情况都可以使用它，即使组件的数据时不变的。但不要滥用！！！滥用会造成性能问题，导致widget被重复创建多次！
+
+StatefulWidget里的setState方法在被调用时，会导致它下面的所有子节点全部调用build，全部重新创建！所以建议有大量子组件的父组件最好谨慎使用StatefulWidget。或者将其拆分为更多更小的父组件。
 ### 声明式UI
