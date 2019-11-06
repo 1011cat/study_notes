@@ -449,3 +449,38 @@ PS：如果不是很清楚时, 那就在父 widget 中管理状态。
 
 StatefulWidget里的setState方法在被调用时，会导致它下面的所有子节点全部调用build，全部重新创建！所以建议有大量子组件的父组件最好谨慎使用StatefulWidget。或者将其拆分为更多更小的父组件。
 ### 声明式UI
+与android和ios不一样，flutter并不是采用命令式的写法（类似于前端dom操作），而是一种描述风格的声明式写法。
+
+简单点，我们知道flutter几乎万物皆widget。所谓声明式UI就是：从外到里，组件嵌套组件。每个组件都需要声明对应的属性描述，最终达到你想要的UI。
+
+举个官方栗子：
+```dart
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Welcome to Flutter',
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Welcome to Flutter'),
+        ),
+        body: Center(
+          child: Text('Hello World'),
+        ),
+      ),
+    );
+  }
+}
+```
+从外到里依次经过了 MaterialApp => Scaffold => AppBar 和 Center  => Text 组件的声明。
+
+优点：
+
+ - 书写更简单，不需要像命令式，什么都是自己动手做。而只需要描述你想要什么样的效果。把会变化的状态写在state里就行了。
+ - 不管 UI 有多少种状态，UI 代码只有一个
+
+缺点：
+
+ - 前面的章节说过，widget都是唯一的，改变即意味着重新构建。
+	 - 虽然看起来会有性能问题，但是flutter的性能依然强大，比RN甚至部分原生还要好。这是因为它底层采用 GPU渲染技术，性能极高，可以达到60fps。
+ -  由于flutter的描述是widget嵌套式的，所以当页面复杂一点点，就会发生嵌套地狱。（希望新版本可以出现类jsx的写法）
