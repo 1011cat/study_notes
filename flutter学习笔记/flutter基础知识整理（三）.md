@@ -18,6 +18,11 @@
     - [深度理解StatelessWidget和StatefulWidget](#深度理解statelesswidget和statefulwidget)
     - [StatelessWidget和StatefulWidget的使用建议](#statelesswidget和statefulwidget的使用建议)
   - [声明式UI](#声明式ui)
+  - [使用包资源（packages）](#使用包资源packages)
+    - [包的使用](#包的使用)
+  - [数据请求](#数据请求)
+    - [添加http包](#添加http包)
+    - [进行网络请求](#进行网络请求)
 
 <!-- /TOC -->
 ## Flutter基础知识
@@ -484,3 +489,60 @@ class MyApp extends StatelessWidget {
  - 前面的章节说过，widget都是唯一的，改变即意味着重新构建。
 	 - 虽然看起来会有性能问题，但是flutter的性能依然强大，比RN甚至部分原生还要好。这是因为它底层采用 GPU渲染技术，性能极高，可以达到60fps。
  -  由于flutter的描述是widget嵌套式的，所以当页面复杂一点点，就会发生嵌套地狱。（希望新版本可以出现类jsx的写法）
+
+### 使用包资源（packages）
+flutter也有第三方资源包平台，不过不是我们熟悉的npm。而是叫做Dart Packages 网址：https://pub.flutter-io.cn/  其中兼容flutter的网址为： https://pub.flutter-io.cn/flutter
+
+在里面你能搜索到所有已经发布到该平台上的资源。如果你想使用自己写的包资源或者从github下到的资源，也可以查看该系列（二）。里面有说明。
+
+#### 包的使用
+
+ - 1，添加依赖：
+	 - 打开 pubspec.yaml 文件 。根据情况自己选择是放在dependencies下，还是dev_dependencies
+	```dart
+	dependencies:
+	  flutter:
+		sdk: flutter
+	  # 和package.json 里的写法类似
+	  url_launcher: ^0.4.1
+
+	dev_dependencies:
+	  flutter_test:
+		sdk: flutter
+	```
+
+ - 2，安装
+	 -   在命令行中运行：`flutter pub get` 这样包就已经安装完毕，剩下就是引用包
+
+ - 3，引入
+	 - 打开需要引入的dart文件，通过import 进行引入
+		 ```dart
+		 import 'package:url_launcher/url_launcher.dart';
+		 ```
+
+### 数据请求
+flutter的请求方式有很大。一般主要使用两种：
+
+ - 1，dart原生的网络请求：HttpClient
+ - 2，使用第三方库里的http包 [包地址](https://pub.flutter-io.cn/packages/http#-readme-tab-)
+
+目前用得最多，官方文档里推荐的也是第二种 http包。这里我们也只介绍第二种方法：
+
+整个过程一般分为以下四步：
+1.  添加 `http` 包
+2.  使用 `http` 包进行网络请求
+3.  将返回的响应转换成一个自定义的 Dart 对象
+4.  使用 Flutter 对数据进行获取和展示
+
+#### 添加http包
+在上一节刚刚如何使用包。这里就简略点，直接上代码
+```dart
+#在 pubspec.yaml 的 dependencies 添加:
+dependencies:
+  http: ^0.12.0+2
+```
+然后执行`flutter packages get`
+
+最后在需要的dart文件里进行引入`import 'package:http/http.dart' as http;`
+
+#### 进行网络请求
