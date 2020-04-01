@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c071ed10-ebcf-4829-9eec-8b04d1406764" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/类.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/hello_python.py" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="ProjectId" id="1Y14DqWBy8CmlaLk07mPh0yj9If" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/file" />
+    <property name="settings.editor.selected.configurable" value="tasks.servers" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/file" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python tests.Unittests in 测试.py">
+    <configuration name="文件和异常" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="py" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/文件和异常.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="string" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="py" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/string.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests for 测试.PlusTestCase (1)" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="py" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;测试.PlusTestCase&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests for 测试.PlusTestCase" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="py" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_pattern" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;测试.py&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests in 测试.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="py" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/测试.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.文件和异常" />
+      <item itemvalue="Python.string" />
+      <item itemvalue="Python tests.Unittests for 测试.PlusTestCase" />
+      <item itemvalue="Python tests.Unittests in 测试.py" />
+      <item itemvalue="Python tests.Unittests for 测试.PlusTestCase (1)" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python tests.Unittests in 测试.py" />
+        <item itemvalue="Python tests.Unittests for 测试.PlusTestCase (1)" />
+        <item itemvalue="Python tests.Unittests for 测试.PlusTestCase" />
+        <item itemvalue="Python.string" />
+        <item itemvalue="Python.文件和异常" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration>$USER_HOME$/.subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c071ed10-ebcf-4829-9eec-8b04d1406764" name="Default Changelist" comment="" />
+      <created>1582096649594</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1582096649594</updated>
+      <workItem from="1582096652406" duration="6763000" />
+      <workItem from="1582105354746" duration="59000" />
+      <workItem from="1582105428444" duration="211000" />
+      <workItem from="1582106214936" duration="8087000" />
+      <workItem from="1584347426343" duration="6096000" />
+      <workItem from="1584430680329" duration="50967000" />
+      <workItem from="1585538635700" duration="217000" />
+      <workItem from="1585585424757" duration="119000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="516" y="66" key="#Unittests_for_测试.PlusTestCase" timestamp="1585538516892">
+      <screen x="0" y="23" width="1680" height="961" />
+    </state>
+    <state x="516" y="66" key="#Unittests_for_测试.PlusTestCase/0.23.1680.961@0.23.1680.961" timestamp="1585538516892" />
+    <state x="516" y="66" key="#Unittests_for_测试.PlusTestCase_(1)" timestamp="1585538548938">
+      <screen x="0" y="23" width="1680" height="961" />
+    </state>
+    <state x="516" y="66" key="#Unittests_for_测试.PlusTestCase_(1)/0.23.1680.961@0.23.1680.961" timestamp="1585538548938" />
+    <state x="516" y="66" key="#Unittests_for_测试代码.PlusTestCase" timestamp="1585536575228">
+      <screen x="0" y="23" width="1680" height="961" />
+    </state>
+    <state x="516" y="66" key="#Unittests_for_测试代码.PlusTestCase/0.23.1680.961@0.23.1680.961" timestamp="1585536575228" />
+    <state x="226" y="137" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585537139094">
+      <screen x="0" y="23" width="1680" height="961" />
+    </state>
+    <state x="226" y="136" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.952@0.23.1680.952" timestamp="1582105211188" />
+    <state x="226" y="137" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.961@0.23.1680.961" timestamp="1585537139094" />
+    <state x="550" y="294" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1582099523463">
+      <screen x="0" y="23" width="1680" height="952" />
+    </state>
+    <state x="550" y="294" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1680.952@0.23.1680.952" timestamp="1582099523463" />
+    <state x="515" y="250" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1585538503605">
+      <screen x="0" y="23" width="1680" height="961" />
+    </state>
+    <state x="515" y="250" key="#com.intellij.ide.util.TreeClassChooserDialog/0.23.1680.961@0.23.1680.961" timestamp="1585538503605" />
+    <state width="1628" height="252" key="GridCell.Tab.0.bottom" timestamp="1585538855959">
+      <screen x="0" y="23" width="1680" height="961" />
+    </state>
+    <state width="1628" height="252" key="GridCell.Tab.0.bottom/0.23.1680.952@0.23.1680.952" timestamp="1585033020034" />
+    <state width="1628" height="252" key="GridCell.Tab.0.bottom/0.23.1680.961@0.23.1680.961" timestamp="1585538855959" />
+    <state width="1628" height="252" key="GridCell.Tab.0.center" timestamp="1585538855958">
+      <screen x="0" y="23" width="1680" height="961" />
+    </state>
+    <state width="1628" height="252" key="GridCell.Tab.0.center/0.23.1680.952@0.23.1680.952" timestamp="1585033020033" />
+    <state width="1628" height="252" key="GridCell.Tab.0.center/0.23.1680.961@0.23.1680.961" timestamp="1585538855958" />
+    <state width="1628" height="252" key="GridCell.Tab.0.left" timestamp="1585538855958">
+      <screen x="0" y="23" width="1680" height="961" />
+    </state>
+    <state width="1628" height="252" key="GridCell.Tab.0.left/0.23.1680.952@0.23.1680.952" timestamp="1585033020033" />
+    <state width="1628" height="252" key="GridCell.Tab.0.left/0.23.1680.961@0.23.1680.961" timestamp="1585538855958" />
+    <state width="1628" height="252" key="GridCell.Tab.0.right" timestamp="1585538855959">
+      <screen x="0" y="23" width="1680" height="961" />
+    </state>
+    <state width="1628" height="252" key="GridCell.Tab.0.right/0.23.1680.952@0.23.1680.952" timestamp="1585033020034" />
+    <state width="1628" height="252" key="GridCell.Tab.0.right/0.23.1680.961@0.23.1680.961" timestamp="1585538855959" />
+    <state width="1628" height="301" key="GridCell.Tab.1.bottom" timestamp="1585538552307">
+      <screen x="0" y="23" width="1680" height="961" />
+    </state>
+    <state width="1630" height="303" key="GridCell.Tab.1.bottom/0.23.1680.952@0.23.1680.952" timestamp="1582105306217" />
+    <state width="1628" height="301" key="GridCell.Tab.1.bottom/0.23.1680.961@0.23.1680.961" timestamp="1585538552307" />
+    <state width="1628" height="301" key="GridCell.Tab.1.center" timestamp="1585538552306">
+      <screen x="0" y="23" width="1680" height="961" />
+    </state>
+    <state width="1630" height="303" key="GridCell.Tab.1.center/0.23.1680.952@0.23.1680.952" timestamp="1582105306217" />
+    <state width="1628" height="301" key="GridCell.Tab.1.center/0.23.1680.961@0.23.1680.961" timestamp="1585538552306" />
+    <state width="1628" height="301" key="GridCell.Tab.1.left" timestamp="1585538552306">
+      <screen x="0" y="23" width="1680" height="961" />
+    </state>
+    <state width="1630" height="303" key="GridCell.Tab.1.left/0.23.1680.952@0.23.1680.952" timestamp="1582105306216" />
+    <state width="1628" height="301" key="GridCell.Tab.1.left/0.23.1680.961@0.23.1680.961" timestamp="1585538552306" />
+    <state width="1628" height="301" key="GridCell.Tab.1.right" timestamp="1585538552307">
+      <screen x="0" y="23" width="1680" height="961" />
+    </state>
+    <state width="1630" height="303" key="GridCell.Tab.1.right/0.23.1680.952@0.23.1680.952" timestamp="1582105306217" />
+    <state width="1628" height="301" key="GridCell.Tab.1.right/0.23.1680.961@0.23.1680.961" timestamp="1585538552307" />
+    <state x="310" y="79" key="SettingsEditor" timestamp="1585061713523">
+      <screen x="0" y="23" width="1680" height="961" />
+    </state>
+    <state x="310" y="78" key="SettingsEditor/0.23.1680.952@0.23.1680.952" timestamp="1584349115484" />
+    <state x="310" y="79" key="SettingsEditor/0.23.1680.961@0.23.1680.961" timestamp="1585061713523" />
+    <state x="416" y="313" key="com.intellij.ide.util.TipDialog" timestamp="1582096682025">
+      <screen x="0" y="23" width="1680" height="952" />
+    </state>
+    <state x="416" y="313" key="com.intellij.ide.util.TipDialog/0.23.1680.952@0.23.1680.952" timestamp="1582096682025" />
+    <state x="421" y="23" width="838" height="1032" key="search.everywhere.popup" timestamp="1584349603052">
+      <screen x="0" y="23" width="1680" height="952" />
+    </state>
+    <state x="421" y="23" width="838" height="1032" key="search.everywhere.popup/0.23.1680.952@0.23.1680.952" timestamp="1584349603052" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/py$list.coverage" NAME="list Coverage Results" MODIFIED="1582271870561" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/py$string.coverage" NAME="string Coverage Results" MODIFIED="1585537066972" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/py$number.coverage" NAME="number Coverage Results" MODIFIED="1582190232603" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/py$Unittests_for__PlusTestCase.coverage" NAME="Unittests for 测试.PlusTestCase Coverage Results" MODIFIED="1585538518951" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/py$While.coverage" NAME="用户输入和While循环 Coverage Results" MODIFIED="1584691468383" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/py$if.coverage" NAME="if语句 Coverage Results" MODIFIED="1584606002179" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/py$hello_python.coverage" NAME="hello_python Coverage Results" MODIFIED="1582105459972" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/py$Unittests_in__py.coverage" NAME="Unittests in 测试.py Coverage Results" MODIFIED="1585538655581" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/py$.coverage" NAME="文件和异常 Coverage Results" MODIFIED="1585214540733" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/py$hello_world.coverage" NAME="hello_python Coverage Results" MODIFIED="1582099697790" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/py$list_ctrl.coverage" NAME="list_ctrl Coverage Results" MODIFIED="1584430009524" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/py$list_.coverage" NAME="list_切片 Coverage Results" MODIFIED="1584432752580" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/py$__1_.coverage" NAME="文件和异常 (1) Coverage Results" MODIFIED="1585021677325" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/file" />
+  </component>
+</project>

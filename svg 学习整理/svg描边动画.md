@@ -55,7 +55,7 @@
     <path stroke-linecap="square" d="M10 60 l210 0" />
   </g>
 </svg>
-```
+``` 
 
 ![stroke-linecap](https://user-gold-cdn.xitu.io/2019/8/4/16c5c3c5e7f204a2?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
 

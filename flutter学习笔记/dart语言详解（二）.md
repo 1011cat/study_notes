@@ -43,6 +43,7 @@
   - [引用参考](#引用参考)
 
 <!-- /TOC -->
+
 ## dart语言详述
 
 这部分内容量很多，文字加代码接近三万了。所以强烈建议收藏保存。
@@ -912,7 +913,7 @@ class Dart extends Java with C, JavaScript {
 void main() {
   Dart dart = new Dart();
   // dart 通过mixin继承了C，JavaScript类 可以使用其中的方法
-  dart.c(); 
+  dart.c();
   dart.java();  
   dart.javascript();
   // 打印结果为：
@@ -1059,6 +1060,7 @@ getDate () async {
 	//..
 }
 ```
+
 #### 处理 stream
 如果想从 Stream 中获取值，可以有两种选择：
 *   使用 `async` 关键字和一个 _异步循环_（使用 `await for` 关键字标识），正如我前面说的stream是返回多次异步数据，因此需要异步循环。
@@ -1105,6 +1107,7 @@ class myName extends Father {
 	}
 }
 ```
+
 ### 该系列列表
 - [flutter不完全指南系列--（一）flutter特点及学习建议](https://juejin.im/post/5dac91296fb9a04e270fb204)
 - [flutter不完全指南系列--（二）dart详解（前端角度的两万字解析）](https://juejin.im/post/5dade0fa5188251d2c4ea3fb)
